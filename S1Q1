@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form for assingment</title>
+	<style type="text/css">
+		
+		h1{
+          font-size:6pt;
+          color: red;
+		}
+		body{
+         background-color:yellow ;
+		}
+	</style>
+</head>
+<body >
+		<h1>Project Managment</h1>
+	
+	<form  >
+		Project name:-
+		<input type="text" name="pname" placeholder="Reality show management"><br>
+		Assigned to:-
+		<input type="text" name="ass" placeholder="Html and css"><br>
+		Start Date:-
+		<input type="date" name="sdate" placeholder="dd-mm-yyyy"><br>
+		End Date:-
+		<input type="date"name="edate"placeholder="dd-mm-yyyy"><br>
+		Priority
+		<input type="radio"name="pri">High
+		<input type="radio"name="pri">Average
+		<input type="radio"name="pri">low <br>
+		Description
+		<input type="text" name="txt"><br>
+
+		<input type="submit" value="Submit">
+		<input type ="reset" value="Reset">
+	</form>
+
+
+</body>
+</html>
