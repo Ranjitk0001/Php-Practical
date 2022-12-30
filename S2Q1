@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>About my City</title>
+    </head>
+    <body style="background-color:Pink">
+        <h3 style="color:blue">Baramati</h3>
+        <label style="font-family:'Franklin Gothic Medium';color:orange;font-size:60" >Pencil chowk</label><br>
+        <label style="font-family:'verdana';color:black;font-size:40" >CC</label><br>
+        <label style="font-family:'calibri';color:green;font-size:50" >City Inn</label><br>
+        <img src="4.jpg" alt="Insert valid image!" width="500">
+    </body>
+</html>
