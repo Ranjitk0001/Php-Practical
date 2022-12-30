@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>s3</title>
+	<style>
+		h1{
+			color:red;
+			background-color:grren;
+			font-size:100px;
+			font-family:comic sans ms;
+		}
+        p{
+        	color:blue;
+        }		
+
+	</style>
+
+</head>
+<body bgcolor="pink">
+<h1>Learn with W3school</h1>
+<br>
+<p> We can do it</p>
+</body>
+</html>
