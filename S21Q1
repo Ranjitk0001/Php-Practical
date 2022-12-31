@@ -1,0 +1,16 @@
+<?php
+    $arr = array(40, 39, 37, 40, 42, 45, 43, 39, 47, 44, 39, 42, 43, 40, 45);
+    $avg = (array_sum($arr)) / 15;
+
+    echo "Orignal temprature array is: ";
+    foreach ($arr as $temp)
+        echo "$temp ";
+
+    echo "<br><br>Average High Temprature is: ".$avg;
+    rsort($arr);
+
+    echo "<br><br>Five Warmest high temp are:";
+    for($i=0;$i<5;$i++)
+        echo "$arr[$i] ";
+
+?>
