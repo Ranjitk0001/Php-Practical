@@ -1,0 +1,25 @@
+<?php
+    $arr=array("Sagar"=>"31","Vicky"=>"41","Leena"=>"39","Ramesh"=>"40");
+    foreach ($arr as $v => $v_value)
+        echo "$v=>$v_value<br>";
+
+    asort($arr);
+    echo "<br>Ascending order Sort by value:<br>";
+    foreach ($arr as $v => $v_value)
+        echo "$v=>$v_value<br>";
+
+    ksort($arr);
+    echo "<br>Ascending order Sort by Key:<br>";
+    foreach ($arr as $v => $v_value)
+        echo "$v=>$v_value<br>";
+
+    arsort($arr);
+    echo "<br>Descending order Sort by value:<br>";
+    foreach ($arr as $v => $v_value)
+        echo "$v=>$v_value<br>";
+
+    krsort($arr);    
+    echo "<br>Descending order Sort by Key:<br>";
+    foreach ($arr as $v => $v_value)
+        echo "$v=>$v_value<br>";
+?>
