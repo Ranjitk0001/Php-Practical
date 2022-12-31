@@ -1,0 +1,72 @@
+
+//Slip 25
+//Q1
+
+//Html Code
+
+<html>
+    <head>
+        <title>Question 1</title>
+    </head>
+    <body>
+        <form action="S25Q1.php" method="POST">
+            Enter File Name:
+            <input type="text" name="fname"><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
+
+//Php Code
+
+<?php
+    $fname=$_POST["fname"];
+
+    $fp=fopen($fname,"r");
+
+    echo "<br>Type of file: ";
+    echo filetype($fname);
+    echo "<br>";
+
+    echo "<br>Last Modified time of file: ";
+    echo fileatime($fname);
+    echo "<br>";
+    
+    echo "<br>Size of file: ";
+    echo filesize($fname);
+    echo "<br>";
+    
+    unlink($fname);
+    echo "<br>File Deleted successfully! ";
+?>
+
+
+//Q2
+//A
+
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+
+//B
+
+import numpy as np
+import matplotlib.pyplot as plt
+s_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
+S25.txt
+Displaying S25.txt.
