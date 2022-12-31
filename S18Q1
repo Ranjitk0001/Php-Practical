@@ -1,0 +1,89 @@
+<html>
+
+ <body bgcolor = "navyblue">
+
+  <form action="S18Q1.php" method="POST">
+
+   <center>
+
+    <h2> Enter ur choice: <h2>
+
+    <h3><input type="radio" name="option" value="1">Reverse the order of each elements key-value pair</h3>
+
+    <h3><input type="radio" name="option" value="2">Traverse the elements in array in random order</h3>
+
+	<h3><input type="radio" name="option" value="3">Convert the array elements into individual variables.</h3>
+
+	<h3><input type="radio" name="option" value="4">Display the elements of an array along with key.</h3>
+
+
+
+
+
+    <input type="submit" value="Submit">
+
+   </center>
+
+  
+
+  </form>
+
+ </body>
+
+
+</html>
+
+
+<?php
+
+	
+
+	$op = $_POST['option'];
+
+	
+
+	$input = array("Sonny"=>"50", "Tonny"=>"80", "Money"=>"58");
+
+	
+
+	switch($op)
+
+	{
+
+					case 1 :  $flipped = array_flip($input);
+
+						       print_r($flipped);
+
+		   					   break;
+
+					case 2 : 
+
+						      print_r(array_rand($input));
+
+					          break;
+
+					case 3 : 
+
+							 $arr = extract($input);
+
+                             echo "<BR> \$Sonny = ".$Sonny ;
+
+							 echo "<BR> \$Tonny = $Tonny ";
+
+							 echo "<BR> \$Money = $Money ";
+
+					          break;
+
+					case 4 : 
+
+					         foreach($input as $k=>$v)
+
+							     echo "<BR>$k";
+
+					          break;
+
+	}
+
+
+
+?>
