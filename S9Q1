@@ -1,0 +1,49 @@
+<!-- S9Q1.html -->
+<html>
+    <head>
+        <title>Slip 9 Question 1</title>
+    </head>
+    <body>
+        <form action="S9Q1.php" method="POST">
+            Enter Text:
+            <input type="text" name="str">
+            
+            <label for="seperator">Select Seperator:</label>
+            <select name="seperator" id="seperator">
+                <option value="#">#</option>
+                <option value="|">|</option>
+                <option value="%">%</option>
+                <option value="@">@</option>
+                <option value="!">!</option>
+                <option value=",">,</option>
+            </select><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
+//S9Q1.php
+
+<?php
+    $str=$_POST["str"];
+    $op=$_POST["seperator"];
+
+    $words=explode($op,$str);
+
+    foreach ($words as $word)
+        echo "$word  ";
+
+    $op1=';';
+    $upstr=str_replace($op,$op1,$str);
+    echo "<br>Updated string is: ";
+    print_r($upstr);
+
+    echo "<br>Last word in string is: ";
+    $words=explode($op1,$upstr); 
+    
+    foreach ($words as $word)
+        echo " ";
+
+    echo "$word";
+
+?>
