@@ -1,0 +1,45 @@
+
+
+<!-- S8Q1.html -->
+<html>
+    <head>
+        <title>Slip 8 Question 1</title>
+    </head>
+    <body>
+        <form action="S8Q1.php" method="POST">
+            Enter First string:
+            <input type="text" name="str1"><br>
+            Enter Second string:
+            <input type="text" name="str2"><br>
+            Enter Length to compare:
+            <input type="text" name="n"><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
+//S8Q1.php
+
+<?php
+    $ss=$_POST["str1"];
+    $ls=$_POST["str2"];
+    $n=$_POST["n"];
+    
+    if(strlen($ss)>strlen($ls)){
+        $temp=$ss;
+        $ss=$ls;
+        $ls=$temp;
+    }
+
+    $pos=strpos($ls,$ss);
+    if($pos==0)
+        echo "String $ss present at the start of $ls<br>";
+    else
+        echo "String $ss not present at the start of $ls<br>";
+    echo "String $ss in $ls is at position: $pos<br>";
+
+    if(strncasecmp($ls,$ss,$n)==0)
+        echo "$ss is equal to $ls";
+    else
+        echo "$ss is not equal to $ls till index $n";
+?>
