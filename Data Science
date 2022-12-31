@@ -1,0 +1,625 @@
+Slip no 1
+A) Write a Python program to create a Pie plot to get the frequency of the three species of
+the Iris data (Use iris.csv)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+iris = pd.read_csv("iris.csv")
+ax=plt.subplots(1,1,figsize=(10,8))
+iris['Species'].value_counts().plot.pie(explode=[0.1,0.1,0.1],autopct='%5.1f%%',shadow=True,figsize=(5,8))
+plt.title("Iris Species %")
+plt.show()
+
+B) Write a Python program to view basic statistical details of the data.(Use wineequality-red.csv)
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+print('statistical details of data frame')
+print(df.describe())
+
+slip no 2
+A)	Write a Python program for Handling Missing Value. Replace missing value of salary, age column with mean of that column.(Use Data.csv file).
+import pandas as pd
+data=pd.read_csv("/home/pc256/TYBCS-(semI)DS/Assignment3/Data1.csv")
+print(data.fillna(data.mean()))
+
+
+b) Write a Python program to generate a line plot of name Vs salary
+import matplotlib.pyplot as plt
+name=['xyz','pqr','abc']
+sal=[15,55,75]
+plt.plot(name, sal, color='Blue')
+plt.xlabel('name',color="green")
+plt.ylabel('sal',color="Red")
+plt.show()
+slip no 3
+
+A)Write a Python program to create box plots to see how each feature i.e. Sepal Length,
+Sepal Width, Petal Length, Petal Width are distributed across the three species. (Use
+iris.csv dataset)
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+data = pd.read_csv("iris.csv")
+new_data = data[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm","PetalWidthCm"]]
+new_data.boxplot()
+plt.show()
+
+Write a Python program to view basic statistical details of the data (Use Heights and
+Weights Dataset)
+import pandas as pd
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/weight-height.csv")
+print(data.describe())
+print(data.info())
+
+
+slip no 4
+
+Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+Write a Python program to print the shape, number of rows-columns, data types, feature names and the description of the data(Use User_Data.csv)
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+#print(df.head(6))
+print('shape of CSV')
+print(df.shape)
+print('Data types')
+print(df.dtypes)
+print('Description of CSV')
+print(df.describe())
+
+
+slip no 7
+
+Write a Python program to perform the following tasks :
+a. Apply OneHot coding on Country column.
+b. Apply Label encoding on purchased column
+(Data.csv have two categorical column the country column, and the purchased column).
+[15]
+a) import numpy as np
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+enc = OneHotEncoder(handle_unknown='ignore')
+enc_df = pd.DataFrame(enc.fit_transform(df2[['Country']]).toarray())
+print(enc_df)
+
+b) import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+labelencoder = LabelEncoder()
+df2['Purchased'] = labelencoder.fit_transform(df2['Purchased'])
+print(df2)
+
+
+slip no 8
+Write a program in python to perform following task : [15]Standardizing Data (transform them into a standard Gaussian distribution with a mean of 0 and a standard deviation of 1) (Use winequality-red.csv)
+
+
+
+
+Slip no 9
+Generate a random array of 50 integers and display them using a line chart, scatter plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+B)	Create two lists, one representing subject names and the other representing marks obtained in those subjects. Display the data in a pie chart.
+import numpy as np
+import matplotlib.pyplot as plts_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
+
+Write a program in python to perform following task (Use winequality-red.csv ) [5]Import Dataset and do the followings:
+a) Describing the dataset
+b) Shape of the dataset
+c) Display first 3 rows from dataset
+import pandas as pd
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+print("des the dataset")
+print(data.describe())
+print("shape of the data")
+print(data.shape)
+print("first 3 rows ")
+print(data.head(3))
+print("Last 3 rows:")
+print(data.tail(3))
+print("random records ")
+print(data.sample(3))
+
+slip no 10
+Write a python program to Display column-wise mean, and median for SOCR-HeightWeight dataset.
+
+
+
+
+c) Write a python program to compute sum of Manhattan distance between all pairs of points.
+A = [1,2,3]
+B = [5,3,2]
+ 
+dis = 0
+ 
+for i in range(len(A)):
+    dis += abs(A[i] - B[i])
+ 
+print("First Array is: ", A)
+print("Second Array is: ", B)
+print("Manhattan Distance is: ", dis)
+
+slip no 12
+A)	Generate a random array of 50 integers and display them using a line chart, scatter plot,histogram and box plot. Apply appropriate color, labels and styling options
+
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+Write a Python program to create data frame containing column name, salary, department add 10 rows with some missing and duplicate values to the data frame. Also drop all null and empty values. Print the modified data frame.
+#Import the library
+import pandas as pd
+#Create an empty data frame with column names
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 10000, comp]
+df.loc[1] = ['Ajinkya',10000, IT]
+df.loc[2] = ['none', none, None]
+df.loc[3] = ['PQR', 30000, CHEM]
+#Print the dataframe
+print(df)
+df["remark"] = None 
+print(df)
+df.drop(columns='remark', axis=1, inplace=True)
+print(df)
+print(df.dropna())
+slip no 13
+Write a Python program to create a graph to find relationship between the petal length and petal width.(Use iris.csv dataset)
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+iris=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment4/iris.csv")
+fig=iris[iris.Species=='Iris-setosa'].plot.scatter(x='PetalLengthCm',y='PetalWidthCm',color='orange',label='Setosa')
+iris[iris.Species=='Iris-versicolor'].plot.scatter(x='PetalLengthCm',y='PetalWidthCm',color='blue',label='versicolor',ax=fig)
+iris[iris.Species=='Iris-virginica'].plot.scatter(x='PetalLengthCm',y='PetalWidthCm',color='green',label='virginica',ax=fig)
+fig.set_xlabel("PetalÂ Length")
+fig.set_ylabel("PetalÂ Width")
+fig.set_title("Â PetalÂ LengthÂ VSÂ Width")
+fig=plt.gcf()
+fig.set_size_inches(12,8)
+plt.show()
+
+Write a Python program to find the maximum and minimum value of a given flattened array.
+import numpy as np
+a = np.arange(4).reshape((2,2))
+print("Original flattened array:")
+print(a)
+print("Maximum value of the above flattened array:")
+print(np.amax(a))
+print("Minimum value of the above flattened array:")
+print(np.amin(a))
+
+slip no 15
+Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+b)Create two lists, one representing subject names and the other representing marks obtained in those subjects. Display the data in a pie chart.
+import numpy as np
+import matplotlib.pyplot as plt
+s_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
+slip no 16
+Write a python program to create two lists, one representing subject names and the other representing marks obtained in those subjects. Display the data in a pie chart and bar chart.
+import numpy as np
+import matplotlib.pyplot as plt
+s_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
+Write a python program to create a data frame for students’ information such as name, graduation percentage and age. Display average age of students, average of graduation percentage.
+
+
+Slip no 16
+Write a Python program to draw scatter plots to compare two features of the iris dataset
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn import preprocessing
+iris = pd.read_csv("iris.csv")
+#Drop id column
+iris = iris.drop('Id',axis=1)
+#Convert Species columns in a numerical column of the iris dataframe
+#creating labelEncoder
+le = preprocessing.LabelEncoder()
+# Converting string labels into numbers.
+iris.Species = le.fit_transform(iris.Species)
+x = iris.iloc[:, :-1].values
+y = iris.iloc[:, 4].values
+plt.scatter(x[:,0], x[:, 3], c=y, cmap ='flag')
+plt.xlabel('Sepal Length cm')
+plt.ylabel('Petal Width cm')
+plt.show()
+
+Write a Python program to create a data frame containing columns name, age , salary, department . Add 10 rows to the data frame. View the data frame.
+#Import the library
+import pandas as pd
+#Create an empty data frame with column names
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[2] = ['XYZ', 20, 2019]
+df.loc[3] = ['PQR', 30, 2015]
+#Print the dataframe
+print(df)   
+
+slip no 18
+Write a Python program to create box plots to see how each feature i.e. Sepal Length, Sepal Width, Petal Length, Petal Width are distributed across the three species. (Use iris.csv dataset)
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+data = pd.read_csv("iris.csv")
+plt.figure(figsize = (10, 7))
+new_data = data[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm","PetalWidthCm"]]
+new_data.boxplot()
+plt.show()
+
+Use the heights and weights dataset and load the dataset from a given csv file into a dataframe. Print the first, last 5 rows and random 10 row.
+import pandas as pd
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/weight-height.csv")
+print("\n first 10 rows")
+print(data.head(10))
+print("\n last  10 rows")
+print(data.tail(10))
+print("\n random 20 rows ")
+print(data.sample(20))
+
+slip no 19
+Write a Python program [15]
+1. To create a dataframe containing columns name, age and percentage. Add 10 rows to the dataframe. View the dataframe.
+#Import the library
+import pandas as pd
+#Create an empty data frame with column names
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[2] = ['XYZ', 20, 2019]
+df.loc[3] = ['PQR', 30, 2015]
+#Print the dataframe
+print(df)   
+2. To print the shape, number of rows-columns, data types, feature names and the description of the data.
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+#print(df.head(6))
+print('shape of CSV')
+print(df.shape)
+print('Data types')
+print(df.dtypes)
+print('Description of CSV')
+print(df.describe())
+3.To Add 5 rows with duplicate values and missing values. Add a column ‘remarks’ with empty values. Display the data.
+import numpy as np
+import pandas as pd
+
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[5]= [None, None, None]
+df.loc[3] = ['PQR', 30, 2015]
+#Print the dataframe
+print(df)
+df["remark"] = None 
+print(df)
+
+slip no 20
+1.Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+Add two outliers to the above data and display the box plot.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+plt.boxplot(x,vert=False)
+plt.show()
+
+slip no 21
+A) Import dataset “iris.csv”. Write a Python program to create a Bar plot to get the frequency of the three species of the Iris data.
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+iris =pd.read_csv('/home/pc256/Iris.csv')
+ax=plt.subplots(1,1,figsize=(10,8))
+sns.countplot('Species',data=iris)
+plt.title("Iris Species Count")
+plt.show()
+
+B)Write a Python program to create a histogram of the three species of the Iris data.
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+iris=pd.read_csv("iris.csv")
+
+fig,ax=plt.subplots()
+x_index=3
+colors=['blue','red','green']
+
+for label,color in zip(range(len(iris.target_names)),color):
+    ax.hist(iris.data[iris.target==label,x_index],label=iris.target_names[label],color=color)
+
+ax.set_xlabel(iris.feature_names[x_index])
+ax.legend(loc='upperÂ right')
+plt.show()
+
+slip no 22
+Q.2) Dataset Name: winequality-red.csv [15] Write a program in python to perform following tasks
+a. Rescaling: Normalised the dataset using MinMaxScaler class
+
+
+
+
+slip no 23
+
+
+
+
+slip no 24
+Import dataset “iris.csv”. Write a Python program to create a Bar plot to get the frequency of the three species of the Iris data.
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+iris =pd.read_csv('/home/pc256/Iris.csv')
+ax=plt.subplots(1,1,figsize=(10,8))
+sns.countplot('Species',data=iris)
+plt.title("Iris Species Count")
+plt.show()
+B)Write a Python program to create a histogram of the three species of the Iris data.
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+iris=pd.read_csv("iris.csv")
+
+fig,ax=plt.subplots()
+x_index=3
+colors=['blue','red','green']
+
+for label,color in zip(range(len(iris.target_names)),color):
+    ax.hist(iris.data[iris.target==label,x_index],label=iris.target_names[label],color=color)
+
+ax.set_xlabel(iris.feature_names[x_index])
+ax.legend(loc='upperÂ right')
+plt.show()
+
+
+
+slip no 25
+Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+Create two lists, one representing subject names and the other representing marks obtained in those subjects. Display the data in a pie chart.
+import numpy as np
+import matplotlib.pyplot as plt
+s_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
+slip no 26
+Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+2.Create two lists, one representing subject names and the other representing marks obtained  those subjects. Display the data in bar chart.
+import numpy as np
+import matplotlib.pyplot as plt
+s_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
+slip no 27
+Create a dataset data.csv having two categorical column (the country column, and the
+purchased column). [15]
+a. Apply OneHot coding on Country column.
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+enc = OneHotEncoder(handle_unknown='ignore')
+enc_df = pd.DataFrame(enc.fit_transform(df2[['Country']]).toarray())
+print(enc_df)
+
+b. Apply Label encoding on purchased column
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+labelencoder = LabelEncoder()
+df2['Purchased'] = labelencoder.fit_transform(df2['Purchased'])
+print(df2)
+
+
+
+slip no 28
+Q.2) Write a Python program [15]
+1. To create a dataframe containing columns name, age and percentage. Add 10 rows to the dataframe. View the dataframe.
+#Import the library
+import pandas as pd
+#Create an empty data frame with column names
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[2] = ['XYZ', 20, 2019]
+df.loc[3] = ['PQR', 30, 2015]
+#Print the dataframe
+print(df)   
+2. To print the shape, number of rows-columns, data types, feature names and the description of the data.
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+#print(df.head(6))
+print('shape of CSV')
+print(df.shape)
+print('Data types')
+print(df.dtypes)
+print('Description of CSV')
+print(df.describe())
+
+3. To view basic statistical details of the data.
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+print('statistical details of data frame')
+print(df.describe())
+
+4. To Add 5 rows with duplicate values and missing values. Add a column ‘remarks’ with empty values. Display the data.
+import numpy as np
+import pandas as pd
+
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[5]= [None, None, None]
+df.loc[3] = ['PQR', 30, 2015]
+#Print the dataframe
+print(df)
+df["remark"] = None 
+print(df)
+
+
+
+
+Slip no 29
+Q.2) Create a dataset data.csv having two categorical column (the country column, and the
+purchased column). [15]
+1. Apply OneHot coding on Country column.
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+enc = OneHotEncoder(handle_unknown='ignore')
+enc_df = pd.DataFrame(enc.fit_transform(df2[['Country']]).toarray())
+print(enc_df)
+
+2. Apply Label encoding on purchased column
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+labelencoder = LabelEncoder()
+df2['Purchased'] = labelencoder.fit_transform(df2['Purchased'])
+print(df2)
+
+
+Slip no 30
+Write python program to [15]
+a. Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+b. Create two lists, one representing subject names and the other representing marks obtained in those subjects. Display the data in bar chart.
+import numpy as np
+import matplotlib.pyplot as plt
+s_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
