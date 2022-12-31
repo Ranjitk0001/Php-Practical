@@ -1,0 +1,60 @@
+<html>
+
+ <body bgcolor = "navyblue">
+
+  <form action="S20Q1.php" method="POST">
+   <center>
+
+    <h2> Enter ur choice: <h2>
+
+    <h3><input type="radio" name="option" value="1">Split an array into chunks </h3>
+
+    <h3><input type="radio" name="option" value="2">Sort the array by values without changing the keys. </h3>
+
+	<h3><input type="radio" name="option" value="3">Filter the even elements from an array. </h3>
+    
+    <input type="submit" value="Submit">
+
+   </center>
+  </form>
+ </body>
+</html>
+
+<?php
+	$val = $_POST['option'];
+	$input = array("Sonny"=>"50", "Tonny"=>"80", "Money"=>"58","laila"=>"99","nihan"=>"90","kemal"=>"88");
+
+function evenCmp($input)
+	{
+
+		return !($input & 1);
+
+	}
+	switch($val)
+
+	{
+
+					case 1 :  $split = array_chunk($input,2);
+
+						       print_r($split);
+
+		   					   break;	
+
+					case 2 : 
+
+							 asort($input);
+
+						      print_r($input);
+
+					          break;
+
+					
+
+					case 3 : 
+
+					         print_r(array_filter($input,"evenCmp"));
+
+					          break;
+
+	}
+?>
