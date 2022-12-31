@@ -1,0 +1,115 @@
+
+//Slip 26
+//Q1
+
+//Html Code
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Q1</title>
+    </head>
+    <body>
+        <form action="S26Q1.php" method="POST">
+            Enter Hospital Name:
+            <input type="text" name="hname" placeholder="rui,city,chintamani"><br>
+            <input type="submit" name="Submit"><input type="reset" name="Reset">
+        </form>
+    </body>
+</html>
+
+//Php Code
+
+<?php
+    $hname=$_POST['hname'];
+    $db=pg_connect("host=172.16.6.1  dbname=typhp user=typhp password=''");
+    $q="select * from doctor,hospital,doc_hospital 
+    where doctor.doc_no=doc_hospital.doc_no
+    and hospital.hosp_no=doc_hospital.hosp_no
+    and hname='$hname';";
+    $r=pg_query($db,$q);
+    while($row=pg_fetch_row($r))
+        echo "$row[0] $row[1] $row[2]\n</br>";
+    pg_close($db);
+?>
+
+//Sql Code
+
+create table doctor
+(
+	doc_no int primary key,
+	dname varchar(30),
+	address varchar(50),
+	city varchar(30),
+	area varchar(30)
+);
+
+create table hospital
+(
+	hosp_no int primary key,
+	hname varchar(30),
+	hcity varchar(30)
+);
+
+
+insert into doctor values(1,'shubham','bhd','baramati','pc');
+insert into doctor values(2,'akash','bhd','baramati','pc');
+insert into doctor values(3,'kartik','bhd','baramati','pc');
+insert into doctor values(4,'jaya','bhd','baramati','pc');
+insert into doctor values(5,'bunty','bhd','baramati','pc');
+
+select * from doctor;
+
+insert into hospital values(1,'rui','baramati');
+insert into hospital values(2,'city','baramati');
+insert into hospital values(3,'chintamani','baramati');
+
+select * from hospital;
+
+create table doc_hospital
+(
+	doc_no int references doctor (doc_no) on delete cascade on update set null,
+	hosp_no int references hospital (hosp_no) on delete cascade on update set null
+);
+
+insert into doc_hospital values(1,1);
+insert into doc_hospital values(1,3);
+insert into doc_hospital values(2,2);
+insert into doc_hospital values(2,1);
+insert into doc_hospital values(3,2);
+insert into doc_hospital values(3,3);
+insert into doc_hospital values(4,1);
+insert into doc_hospital values(5,1);
+
+select * from doc_hospital;
+
+
+
+//Q2
+//A
+
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+
+//B
+
+import numpy as np
+import matplotlib.pyplot as plt
+s_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()
+S26.txt
+Displaying S26.txt.
