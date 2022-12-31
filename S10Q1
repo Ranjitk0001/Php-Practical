@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Question 1</title>
+    </head>
+    <body>
+        <form action="S10Q1.php" method="POST">
+            Enter First Number:
+            <input type="text" name="num1"><br>
+            Enter Second Number:
+            <input type="text" name="num2"><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
+
+<?php
+    $num1=$_POST["num1"];
+    $num2=$_POST["num2"];
+
+    function mod($a,$b){
+        return $a%$b;
+    }
+    
+    function power($a,$b){
+        return $b**$a;
+    }
+
+    function sum($a){
+        $sum=0;
+        for($i=0;$i<=$a;$i++){
+            $sum=$sum+$i;
+        }
+        return $sum;
+    }
+
+    function fact($b){
+        $fact=1;
+        for($i=1;$i<=$b;$i++){
+            $fact=$fact*$i;
+        }
+        return $fact;
+    }
+
+    echo "<br>Mod of $num1 & $num2 is: ".mod($num1,$num2);
+    echo "<br>Ans of $num2 raise to $num1 is: ".power($num1,$num2);
+    echo "<br>sum of numbers till $num1 is: ".sum($num1);
+    echo "<br>Factorial of $num2 is: ".fact($num2);
+?>
