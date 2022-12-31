@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+ <html>
+ <head> <title> form </title> </head>
+
+ <body bgcolor = "navyblue">
+
+  <form action = "S19Q1.php" method = "POST">
+
+     <center>
+
+	  <label for = "sen"> Plz Enter the Senternce: </label>
+
+	  <input type = "text" name ="sen" id = "sen">    <BR>
+
+	  <label for = "word"> Plz Enter the word: </label>
+
+	  <input type = "text" name ="word" id = "word"> <BR>
+    <input type="submit" value="Submit">
+
+    <input type="reset" value="reset">
+   </center>
+  </form>
+
+ </body>
+
+</html>
+
+<?php
+
+	
+
+	$sentence = $_POST['sen'];
+
+	$smallword = $_POST['word'];
+	echo "<BR>original String :".$sentence;
+
+	$rem = str_replace($smallword," ",$sentence);
+
+	echo "<BR>After removing specific word : $rem";
+	$replace = substr_replace($sentence,$smallword,3,0);
+
+	echo "<BR>After Inserting Specific word in Sentence: $replace";
+	$rep = str_replace($smallword,"bottom",$sentence);
+
+	echo "<BR>After Replacing specific word : $rep";
+?>
