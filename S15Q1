@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Question 1</title>
+    </head>
+    <body>
+        <form action="S15Q1.php" method="POST">
+            Enter String:
+            <input type="text" name="str"><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
+
+
+<?php
+    $str=$_POST["str"];
+
+    function five_words($s){
+        return implode(' ',array_slice(explode(' ',$s),0,5));
+    }
+
+    function low_title_case($s){
+        return ucwords(strtolower($s));
+    }
+
+    function pad($s){
+        return str_pad($s,50,"*",STR_PAD_BOTH);
+    }
+
+    function r_wspace($s){
+        return trim($s);
+    }
+
+    function reverse($s){
+        return strrev($s);
+    }
+    
+    echo "<br>First five words of string is: ".five_words($str);
+    echo "<br>String after converting from lcase to tcase: ".low_title_case($str);
+    echo "<br>String after padding with * from L&R: ".pad($str);
+    echo "<br>String after removing white space: ".r_wspace($str);
+    echo "<br>Reverse of the string is: ".reverse($str);
+?>
