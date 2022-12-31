@@ -1,0 +1,109 @@
+
+//Slip 28
+//Q1
+
+<?php
+    $filename = "student.dat";
+    $file = fopen("student.dat", "r");
+    if(!$file){
+        return;
+    }
+    
+    echo "
+        <table border=1 align='center'>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>OS</th>
+                <th>DS</th>
+                <th>WT</th>
+                <th>Java</th>
+                <th>Python</th>
+                <th>CN</th>
+                <th>Percentage</th>
+            </tr>
+    ";
+
+    $cnt = 0;
+    while(!feof($file)){
+        $data = fgets($file);
+        $val = explode(" ", $data);
+        echo "<tr>";
+        for($i = 0; $i < sizeof($val); $i++){
+            $cnt += (int)$val[$i];
+            echo "
+                <td>$val[$i]</td>
+            ";
+        }
+        $res = $cnt / 300 * 100;
+        echo "<td>$res%</td>";
+        echo "</tr>";
+        $cnt = 0;
+    }
+    echo "</table>";
+?>
+
+
+//Create student.dat file
+
+1 tejas 40 40 40 40 40 40
+2 tejas 40 40 40 40 40 40
+3 tejas 40 40 40 40 40 40
+4 tejas 40 40 40 40 40 40
+5 tejas 40 40 40 40 40 40
+
+
+//Q2
+//1
+
+#Import the library
+import pandas as pd
+#Create an empty data frame with column names
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[2] = ['XYZ', 20, 2019]
+df.loc[3] = ['PQR', 30, 2015]
+#Print the dataframe
+print(df)   
+
+
+//2
+
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+#print(df.head(6))
+print('shape of CSV')
+print(df.shape)
+print('Data types')
+print(df.dtypes)
+print('Description of CSV')
+print(df.describe())
+
+//3
+
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+print('statistical details of data frame')
+print(df.describe())
+
+//4
+
+import numpy as np
+import pandas as pd
+
+df = pd.DataFrame(columns = ['name','age','Per'])
+#Add records
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[5]= [None, None, None]
+df.loc[3] = ['PQR', 30, 2015]
+#Print the dataframe
+print(df)
+df["remark"] = None 
+print(df)
+S28.txt
+Displaying S28.txt.
