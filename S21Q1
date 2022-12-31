@@ -1,3 +1,7 @@
+
+//Slip 21
+//Q1
+
 <?php
     $arr = array(40, 39, 37, 40, 42, 45, 43, 39, 47, 44, 39, 42, 43, 40, 45);
     $avg = (array_sum($arr)) / 15;
@@ -14,3 +18,39 @@
         echo "$arr[$i] ";
 
 ?>
+
+
+//Q2
+//A
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+iris =pd.read_csv('/home/pc256/Iris.csv')
+ax=plt.subplots(1,1,figsize=(10,8))
+sns.countplot('Species',data=iris)
+plt.title("Iris Species Count")
+plt.show()
+
+
+//B
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+iris=pd.read_csv("iris.csv")
+
+fig,ax=plt.subplots()
+x_index=3
+colors=['blue','red','green']
+
+for label,color in zip(range(len(iris.target_names)),color):
+    ax.hist(iris.data[iris.target==label,x_index],label=iris.target_names[label],color=color)
+
+ax.set_xlabel(iris.feature_names[x_index])
+ax.legend(loc='upperÂ right')
+plt.show()
+S21.txt
+Displaying S21.txt.
