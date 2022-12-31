@@ -1,0 +1,129 @@
+
+//Slip 29
+//Q1
+
+//Html Code
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Q1</title>
+    </head>
+    <body>
+        <form action="S29Q1.php" method="POST">
+            Enter Event Name:
+            <input type="text" name="event" placeholder="freshers,gathering,farewell"><br>
+            <input type="submit" name="Submit"><input type="reset" name="Reset">
+        </form>
+    </body>
+</html>
+
+//Php Code
+
+<?php
+    $event=$_POST['event'];
+    $db=pg_connect("host=172.16.6.1  dbname=typhp user=typhp password=''");
+    $q="update cmt set status='working'
+    from event,event_cmt 
+    where title='freshers'
+    and cmt.cno=event_cmt.cno 
+    and event.eno=event_cmt.eno;";
+    $r=pg_query($db,$q);
+    if(!$r)
+        echo pg_last_error($db);
+    else
+        echo "Record updated successfully";
+    pg_close($db);
+?>
+
+//Sql Querey
+
+
+create table event
+(
+	eno int primary key,
+	title varchar(50),
+	edate date
+);
+
+create table cmt
+(
+	cno int primary key,
+	name varchar(50),
+	head varchar(50),
+	from_time time,
+	to_time time,
+	status varchar(50)
+);
+
+insert into event values(1,'freshers','03-09-2022');
+insert into event values(2,'gathering','31-12-2022');
+insert into event values(3,'sports','06-02-2023');
+insert into event values(4,'farewell','15-05-2023');
+
+select * from event;
+
+insert into cmt values(1,'invitation','mayur','00:00','00:00','ideal');
+insert into cmt values(2,'decoration','jay','00:00','00:00','ideal');
+insert into cmt values(3,'food','kartik','00:00','00:00','ideal');
+insert into cmt values(4,'cleaning','shri','00:00','00:00','ideal');
+insert into cmt values(5,'discipline','shubham','00:00','00:00','ideal');
+insert into cmt values(6,'central','swapnil','00:00','00:00','ideal');
+
+select * from cmt;
+
+create table event_cmt
+(
+	eno int references event (eno) on delete cascade on update set null,
+	cno int references cmt(cno) on delete cascade on update set null
+);
+
+insert into event_cmt values(1,2);
+insert into event_cmt values(1,3);
+insert into event_cmt values(1,4);
+insert into event_cmt values(1,6);
+insert into event_cmt values(2,1);
+insert into event_cmt values(2,1);
+insert into event_cmt values(2,6);
+insert into event_cmt values(2,4);
+insert into event_cmt values(2,5);
+insert into event_cmt values(3,1);
+insert into event_cmt values(3,4);
+insert into event_cmt values(3,5);
+insert into event_cmt values(3,6);
+insert into event_cmt values(4,2);
+insert into event_cmt values(4,3);
+insert into event_cmt values(4,4);
+insert into event_cmt values(4,6);
+
+select * from event_cmt;
+
+
+
+
+
+//Q2
+//A
+
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+enc = OneHotEncoder(handle_unknown='ignore')
+enc_df = pd.DataFrame(enc.fit_transform(df2[['Country']]).toarray())
+print(enc_df)
+
+
+//B
+
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+data=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment3/Data1.csv")
+df2=pd.DataFrame(data)
+labelencoder = LabelEncoder()
+df2['Purchased'] = labelencoder.fit_transform(df2['Purchased'])
+print(df2)
+S29.txt
+Displaying S29.txt.
